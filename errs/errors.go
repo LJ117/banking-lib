@@ -35,3 +35,19 @@ func NewValidationError(message string) *AppError {
 		Message: message,
 	}
 }
+
+// NewAuthenticationError 未做权限校验
+func NewAuthenticationError(message string) *AppError {
+	return &AppError{
+		Code:    http.StatusUnauthorized,
+		Message: message,
+	}
+}
+
+// NewAuthorizationError 权限不足
+func NewAuthorizationError(message string) *AppError {
+	return &AppError{
+		Code:    http.StatusForbidden,
+		Message: message,
+	}
+}
